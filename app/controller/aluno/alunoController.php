@@ -12,7 +12,7 @@ if(!empty($_POST['salvar']))
     header('Location: ../../../resource/views/aluno/listarAlunos.php');
     
     
-}elseif (!empty($_GET['Excluir'])) {
+}elseif (!empty($_GET['id'])) {
 
         
     $alunoModel->remove($_GET);

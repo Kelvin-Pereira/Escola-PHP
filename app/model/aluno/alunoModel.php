@@ -38,7 +38,7 @@ class aluno{
 
     public function remove(){
 
-        $id = $_GET['Excluir'];
+        $id = $_GET['id'];
         echo $id;
         $conexao = new Conexao();
 

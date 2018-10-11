@@ -14,10 +14,11 @@ $aresponsavel = $responsavel->ListarTudo();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <!--style-->
+     <!--tem que ficar em cima-->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
      
 
     <title>Alunos</title>
@@ -30,6 +31,8 @@ $aresponsavel = $responsavel->ListarTudo();
     <div class="container">
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demoModal">Novo Aluno</button>
+    
+                                    
 
         <h1>Alunos</h1>
         <table class="table  table-striped table-bordered table-hover">
@@ -42,17 +45,14 @@ $aresponsavel = $responsavel->ListarTudo();
 
 
             <?php   foreach ($aResposta as $resposta):
-                  echo '  <tr>
+                  echo '<tr>
                             <td>'.$resposta['id_aluno'].'</td>
                             <td>'.$resposta['nome'].'</td> 
                             <td align="center" >
-                                <form action="../../../app/controller/aluno/alunoController.php" >  
-                                                                            
-                                    <button type="submit" class="btn btn-warning text-white" value="'.$resposta['id_aluno'].'" name="editar"><img src="../../assets/image/icons/edit.svg" height="25" width="25" /></button>                                               
-                                    <button type="submit" class="btn btn-danger" value="'.$resposta['id_aluno'].'" name="Excluir" >Excluir</button>
-                                </form>
+                                <button type="submit" class="btn btn-warning" value="'.$resposta['id_aluno'].'" name="editar"><img src="../../assets/image/icons/edit.svg" height="25" width="25" /></button>                                               
+                                <a  class="btn btn-danger" href="../../../app/controller/aluno/alunoController.php?id='.$resposta['id_aluno'].'" data-confirm="Tem certeza de que deseja excluir o item selecionado?"><img src="../../assets/image/icons/delete.svg" height="25" width="25"  /></a>
                             </td>
-                            </tr>';
+                        </tr>';
             endforeach; ?>
 
     </table>
@@ -117,13 +117,10 @@ $aresponsavel = $responsavel->ListarTudo();
   </div>
 </div>
 
+<script src="../../assets/js/confimacaoExcuir.js"></script>
+   
 
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        
 </div>
 </body>
 </html>
