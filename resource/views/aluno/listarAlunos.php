@@ -6,6 +6,10 @@ $aResposta = $resposta->ListarTudo();
 include_once '../../../app/model/responsavel/responsavelModel.php';
 $responsavel = new Responsavel;
 $aresponsavel = $responsavel->ListarTudo();
+
+include_once '../../../app/model/curso/cursoModel.php';
+$curso = new Curso;
+$aCurso = $curso->ListarTudo();
 ?>
 
 <!DOCTYPE html>
@@ -85,14 +89,12 @@ $aresponsavel = $responsavel->ListarTudo();
                 <option value="M">Masculino</option>
                 </select> <br> 
                 <select class="form-control"  name="curso" required>
-                <option value="">Curso</option>
-                <option value="1">PHP</option>
-                <option value="2">Banco de Dados</option>
-                <option value="3">Redes</option>
-                <option value="4">Administraçâo</option>
-                <option value="6">Redes de computadores</option>
-                <option value="10">Siste de Informação</option>
-                <option value="11">Test</option>
+                <option value="">Selecione um Curso</option>
+                <?php 
+                foreach($aCurso as $aux):
+                    echo'<option value='.$aux['id_curso'].'>'.$aux['nome'].'</option>';
+                endforeach;
+                ?>
                 </select>  <br>
                 <select class="form-control"  name="responsavel" >
                 <option value="">responsavel</option>

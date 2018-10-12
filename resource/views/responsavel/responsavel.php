@@ -14,6 +14,13 @@ $aResposta = $resposta->ListarTudo();
      <!--style-->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+
+         <!--tem que ficar em cima-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
     <title>Responsavel</title>
 </head>
 <body>
@@ -22,7 +29,7 @@ $aResposta = $resposta->ListarTudo();
     ?>
 
     <div class="container">
-    <br><br><br><a class="btn btn-primary" href="../formulario/cadastroResponsavel.php" role="button">Novo Responsavel</a>
+    <br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsavel">Novo Responsavel</button>
   <h1>Responsaveis</h1>
   <table class="table  table-striped table-bordered table-hover">
             <tr>
@@ -48,6 +55,46 @@ $aResposta = $resposta->ListarTudo();
             endforeach; ?>
 
     </table>
+
+<!-- Modal -->
+<div class="modal fade" id="responsavel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Novo Responsavel</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form action="../../../app/controller/responsavel/responsavelController.php" method="post">
+            <div class="row col-md-12">
+            <div class="col-md-1">
+            </div>
+                <div class="col-md-11">
+                    <input type="text" name="nome" class="form-control"  placeholder="Nome Responsavel" required><br>
+                    <input type="number" name="telefone" class="form-control"  placeholder="Telefone" ><br>
+                    <input type="date" name="data" class="form-control"  placeholder="Data Nascimento" required> <br>
+                    <input type="text" name="endereco" class="form-control"  placeholder="Endereço" > <br>
+                    <select class="form-control"  name="sexo" required>
+                    <option value="">Sexo</option>
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    </select>  <br>
+                        
+                </div>                             
+            </div>                                   
+    </div>
+    <div class="modal-footer">
+    <div align="right">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-success text-white" value="Salvar" name="salvar">Salvar</button>    
+    </div>
+        </form>  
+    </div>
+  </div>
+</div>
+</div>
 
 
 </div>
