@@ -1,0 +1,5 @@
+.color{
+    background: -moz-linear-gradient(0deg, #FF5722,#f9ca24);
+    background: -webkit-linear-gradient(0deg, #FF5722,#f9ca24);
+    background: -ms-linear-gradient(0deg, #FF5722,#f9ca24);
+}
