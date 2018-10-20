@@ -1,7 +1,6 @@
 <?php
-
+session_start();
 include_once '../../model/aluno/alunoModel.php';
-
 $alunoModel = new aluno();
 
 if(!empty($_POST['salvar']))
@@ -12,6 +11,12 @@ if(!empty($_POST['salvar']))
     header('Location: ../../../resource/views/aluno/listarAlunos.php');
     
     
+}elseif (!empty($_POST['upAluno'])) {
+
+       
+    $alunoModel->SalvarUpAluno($_POST);
+    header('Location: ../../../resource/views/aluno/listarAlunos.php');
+
 }elseif (!empty($_GET['acao'] == "excluir")) {
 
         
@@ -20,11 +25,11 @@ if(!empty($_POST['salvar']))
 
 }elseif (!empty($_GET['acao'] == "editar")) {
 
-        
-    $alunoModel->update($_GET);
-    header('Location: ../../../resource/views/aluno/listarAlunos.php');
-}
-else{
+       
+    $alunoModel->EditarAluno($_GET);
+    header('Location: ../../../resource/views/aluno/editarAluno.php');
+
+}else{
     echo "Se chegou aqui é porque deu Erro: ";
 }
 

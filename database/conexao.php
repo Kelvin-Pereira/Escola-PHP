@@ -18,9 +18,7 @@ class Conexao {
 		$this->conectar();
 		$this->conexao->query($sql);
 		$this->desconectar();
-		
-		
-		
+
     
 	}
 	
@@ -34,4 +32,14 @@ class Conexao {
 		return $retorno;
 	}
 	
+	public function EditarAluno($sql)
+	{
+		$this->conectar();
+
+		
+        $retorno = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$this->desconectar();
+		
+		$_SESSION['retornoAluno'] = $retorno;
+	}
 }

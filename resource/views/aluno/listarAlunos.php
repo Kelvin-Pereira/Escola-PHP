@@ -44,6 +44,9 @@ $aCurso = $curso->ListarTudo();
             <tr >
                 <th>ID</th>
                 <th>Nome aluno</th>
+                <th>Matricula</th>
+                <th>sexo</th>
+                <th>ID Curso</th>
                 <th >açao</th>
                 
             </tr>
@@ -53,17 +56,21 @@ $aCurso = $curso->ListarTudo();
                   echo '<tr>
                             <td>'.$resposta['id_aluno'].'</td>
                             <td>'.$resposta['nome'].'</td> 
-                            <td align="center">                                            
-                                <a  class="btn btn-warning" href="../../../app/controller/aluno/alunoController.php?acao=editar&id='.$resposta['id_aluno'].'" data-confirm=""><img src="../../assets/image/icons/edit.svg" height="25" width="25" /></a>
+                            <td>'.$resposta['matricula'].'</td> 
+                            <td>'.$resposta['sexo'].'</td> 
+                            <td align="center">'.$resposta['id_curso'].'</td> 
+                            <td align="center">  
+                                <a  class="btn btn-warning" href="../../../app/controller/aluno/alunoController.php?acao=editar&id='.$resposta['id_aluno'].'" data-edite=""><img src="../../assets/image/icons/edit.svg" height="25" width="25" /></a>
                                 <a  class="btn btn-danger" href="../../../app/controller/aluno/alunoController.php?acao=excluir&id='.$resposta['id_aluno'].'" data-confirm=""><img src="../../assets/image/icons/delete.svg" height="25" width="25"  /></a>
                                 
                             </td>
-                        </tr>';
+                        </tr>
+                        
+                        ';
             endforeach; ?>
 
     </table>
-
-    <!-- Modal -->
+  <!-- Modal -->
     <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -74,7 +81,7 @@ $aCurso = $curso->ListarTudo();
         </button>
       </div>
       <div class="modal-body">
-      <form action="../../../app/controller/aluno/alunoController.php" method="post">
+      <form action="../../../app/controller/aluno/alunoController.php" method="POST">
         <div class="row col-md-12">
         <div class="col-md-1">
         </div>
@@ -113,16 +120,19 @@ $aCurso = $curso->ListarTudo();
       <div class="modal-footer">
         <div align="right">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-success text-white" value="Salvar" name="salvar">Salvar</button>     
+            <button type="submit" class="btn btn-success text-white" value="Salvar" name="salvar">Salvar</button>     
           </div>
       </div>
     </form>            
     </div>
   </div>
 </div>
+<!-- end -->
+
+
 
 <script src="../../assets/js/confimacaoExcuir.js"></script>
-   
+
 
         
 </div>

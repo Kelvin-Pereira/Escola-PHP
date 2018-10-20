@@ -34,11 +34,18 @@ $aCurso = $curso->ListarTudo();
         <tr>
         <th>ID</th>
         <th>Curso</th>
+        <th>Ação</th>
         </tr>
         <?php   foreach ($aCurso as $resposta):
+       
                   echo '<tr>
                             <td>'.$resposta['id_curso'].'</td>
                             <td>'.$resposta['nome'].'</td> 
+                            <td align="center">
+                            
+                            <a  class="btn btn-warning" href="../../../app/controller/curso/cursoController.php?acao=editar&id='.$resposta['id_curso'].'" ><img src="../../assets/image/icons/edit.svg" height="25" width="25"  /></a>
+                            <a  class="btn btn-danger" href="../../../app/controller/curso/cursoController.php?acao=excluir&id='.$resposta['id_curso'].'" ><img src="../../assets/image/icons/delete.svg" height="25" width="25"  /></a>
+                            </td> 
                            
                         </tr>';
                 endforeach; ?>

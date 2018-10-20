@@ -35,6 +35,8 @@ $aResposta = $resposta->ListarTudo();
             <tr>
                 <th>ID</th>
                 <th>Nome Responsavel</th>
+                <th>DataNasc</th>
+                <th>sexo</th>
                 <th>açao</th>
                 
             </tr>
@@ -44,11 +46,11 @@ $aResposta = $resposta->ListarTudo();
                   echo '<tr>
                             <td>'.$resposta['id_responsavel'].'</td>
                             <td>'.$resposta['nome'].'</td>
+                            <td>'.$resposta['data_nascimento'].'</td>
+                            <td align="center">'.$resposta['sexo'].'</td>
                                 <td align="center" >
-                                        <form action="../../../app/controller/responsavel/responsavelController.php" >
-                                            <button type="submit" class="btn btn-warning text-white" value="'.$resposta['id_responsavel'].'" name="editar">Editar</button>                                               
-                                            <button type="submit" class="btn btn-danger" value="'.$resposta['id_responsavel'].'" name="excluir" >Excluir</button>
-                                        </form>                 
+                                <a  class="btn btn-warning" href="../../../app/controller/responsavel/responsavelController.php?acao=editar&id='.$resposta['id_responsavel'].'" ><img src="../../assets/image/icons/edit.svg" height="25" width="25"  /></a>
+                                <a  class="btn btn-danger" href="../../../app/controller/responsavel/responsavelController.php?acao=excluir&id='.$resposta['id_responsavel'].'" ><img src="../../assets/image/icons/delete.svg" height="25" width="25"  /></a>                
                                 </td>
                         
                         </tr>';

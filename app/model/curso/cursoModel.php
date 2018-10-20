@@ -8,18 +8,30 @@ class Curso{
 
         $conexao = new Conexao();
 
-        $sql = "SELECT * FROM curso ";
+        $sql = "SELECT * FROM curso; ";
         return $conexao->recuperarDados($sql);
     
     }//end
     public function remove() {
 
-       echo $id = $_GET['excluir'];
+        $id = $_GET['id'];
 
         $conexao = new Conexao();
 
-        $sql = "DELETE FROM responsavel WHERE id_responsavel = '$id';";
+        $sql = "DELETE FROM curso WHERE id_curso = '$id';";
         return $conexao->executar($sql);
+    
+    }//end
+    //pesquisa no banco e retora para quem chamou
+    public function editar() {
+
+        $id = $_GET['id'];
+
+        $conexao = new Conexao();
+
+        $sql = "SELECT * FROM curso WHERE id_curso = '$id';";
+        $_SESSION['curso'] = $resposta = $conexao->recuperarDados($sql);
+        
     
     }//end
     public function salvar() {
@@ -32,8 +44,17 @@ class Curso{
         return $conexao->executar($sql);
     
     }//end
+    public function salvarUp() {
 
+        $idCurso = $_POST['idCurso'];
+        $nameCurso = $_POST['nameCurso'];
+     
+        $conexao = new Conexao();
 
+        $sql = "UPDATE curso SET nome = '$nameCurso' WHERE (id_curso = '$idCurso');";
+        return $conexao->executar($sql);
+    
+    }//end
 
 
 }
